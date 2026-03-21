@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practice 2 - CSS Font Control</title>
+</head>
+<body>
+
+    <h1>CSS Font Control</h1>
+
+    <div id="paragraph" style="border-style: solid; border-width: 2px; padding: 10px;">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Pellentesque euismod urna eu tincidunt consectetur.
+        Nisi nisl aliquam eros, sed euismod nisl vel ultricies lacinia.
+    </div>
+
+    <br>
+
+    <label>Text Color - R: <input type="text" id="tr" value="0" size="3"></label>
+    <label>G: <input type="text" id="tg" value="0" size="3"></label>
+    <label>B: <input type="text" id="tb" value="0" size="3"></label>
+    <br><br>
+
+    <label>Border Color - R: <input type="text" id="br" value="0" size="3"></label>
+    <label>G: <input type="text" id="bg" value="0" size="3"></label>
+    <label>B: <input type="text" id="bb" value="0" size="3"></label>
+    <br><br>
+
+    <label>Border Width (px): <input type="text" id="bw" value="2" size="3"></label>
+    <br><br>
+
+    <button onclick="applyStyles()">Apply Styles</button>
+
+    <script>
+
+        function applyStyles() {
+
+            // Reference: Slide 10 (intro-web-programming.pdf) - document.getElementById("id").value
+            var tr = document.getElementById("tr").value;
+            var tg = document.getElementById("tg").value;
+            var tb = document.getElementById("tb").value;
+
+            var br = document.getElementById("br").value;
+            var bg = document.getElementById("bg").value;
+            var bb = document.getElementById("bb").value;
+
+            var bw = document.getElementById("bw").value;
+
+            var p = document.getElementById("paragraph");
+
+            // Reference: Slide 12 & 15 (intro-web-programming.pdf) - color, border-width, border-color, CSS property/value pairs
+            p.style.color       = "rgb(" + tr + "," + tg + "," + tb + ")";
+            p.style.borderColor = "rgb(" + br + "," + bg + "," + bb + ")";
+            p.style.borderWidth = bw + "px";
+        }
+    </script>
+
+</body>
+</html>
