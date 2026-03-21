@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Practice 3 - Password Verification</title>
+</head>
+<body>
+
+    <h1>Password Verification</h1>
+
+    <label>Password: <input type="password" id="pw1"></label>
+    <br><br>
+    <label>Confirm Password: <input type="password" id="pw2"></label>
+    <br><br>
+
+    <button onclick="verifyPasswords()">Submit</button> 
+    <!-- on click it goes to the function that checks the reuiqred condition as mentioned in the 
+    problem. -->
+
+    <p id="msg"></p> <!-- This is to print a text message after the comparision and check of the set text as password -->
+
+    <script>
+        function verifyPasswords() {
+
+            var pw1 = document.getElementById("pw1").value;
+            var pw2 = document.getElementById("pw2").value;
+
+            if (pw1.length < 8) {
+                alert("Password must be at least 8 characters long!");
+                return;
+            }
+
+            if (pw1 !== pw2) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            document.getElementById("msg").innerHTML = "Passwords match!";
+        }
+    </script>
+
+</body>
+</html>
