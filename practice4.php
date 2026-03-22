@@ -1,33 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Practice 4 - PHP Multiplication Table</title>
-</head>
-<body>
+<form method="GET">
+    <input type="number" name="num">
+    <button type="submit">Generate</button>
+</form>
 
-    <h1>PHP Multiplication Table</h1>
+<?php
+if (isset($_GET['num'])) {
 
-    <form method="GET" action="practice4.php">
-        <label>Enter a number: <input type="number" name="num"></label>
-        <button type="submit">Generate</button>
-    </form>
+    $n = intval($_GET['num']);
 
-    <br>
+    echo "<table border='1' cellpadding='5'>";
 
-    <?php
-    if (isset($_GET['num'])) {
-
-        $n = intval($_GET['num']);
-
-        // Reference: Slide 23 (intro-web-programming.pdf) - nested for loops
-        for ($row = 1; $row <= $n; $row++) {
-            for ($col = 1; $col <= $n; $col++) {
-                echo $row . " x " . $col . " = " . ($row * $col) . "&nbsp;&nbsp;&nbsp;";
-            }
-            echo "<br>";
-        }
+    // top header row (column indexes)
+    echo "<tr><th></th>";
+    for ($col = 1; $col <= $n; $col++) {
+        echo "<th>$col</th>";
     }
-    ?>
+    echo "</tr>";
 
-</body>
-</html>
+    // table rows with row index + products
+    for ($row = 1; $row <= $n; $row++) {
+        echo "<tr>";
+        echo "<th>$row</th>";  // row index
+
+        for ($col = 1; $col <= $n; $col++) {
+            echo "<td>" . ($row * $col) . "</td>";
+        }
+
+        echo "</tr>";
+    }
+
+    echo "</table>";
+}
+?>
